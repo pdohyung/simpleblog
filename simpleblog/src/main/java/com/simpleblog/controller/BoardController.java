@@ -3,6 +3,7 @@ package com.simpleblog.controller;
 import java.util.List;
 
 import org.springframework.web.bind.annotation.CrossOrigin;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PatchMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -44,5 +45,10 @@ public class BoardController {
 	@PatchMapping("/boards/{boardId}")
 	public Board edit(@PathVariable Long boardId, @RequestBody BoardEdit boardEdit){
 		return boardService.edit(boardId, boardEdit);
+	}
+
+	@DeleteMapping("/boards/{boardId}")
+	public void delete(@PathVariable Long boardId){
+		boardService.delete(boardId);
 	}
 }
