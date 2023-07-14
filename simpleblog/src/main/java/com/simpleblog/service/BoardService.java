@@ -45,4 +45,14 @@ public class BoardService {
 			.createAt(findBoard.getCreatedAt().format(DateTimeFormatter.ofPattern("yyyy-MM-dd hh:mm:ss")))
 			.build();
 	}
+
+	public Board create(BoardDto boardDto) {
+		Board board = Board.builder()
+			.author(boardDto.getAuthor())
+			.title(boardDto.getTitle())
+			.content(boardDto.getContent())
+			.createdAt(LocalDateTime.now())
+			.build();
+		return boardRepository.save(board);
+	}
 }
