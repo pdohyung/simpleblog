@@ -1,5 +1,7 @@
 package com.simpleblog.service;
 
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -25,9 +27,22 @@ public class BoardService {
 				.title(board.getTitle())
 				.content(board.getContent())
 				.author(board.getAuthor())
+				.createAt(board.getCreatedAt().format(DateTimeFormatter.ofPattern("yyyy-MM-dd hh:mm:ss")))
 				.build();
 			dtos.add(dto);
 		}
 		 return dtos;
+	}
+
+	public BoardDto getBoard(Long boardId) {
+		Board findBoard = boardRepository.findById(boardId)
+			.orElseThrow(() -> new IllegalArgumentException("존재하지 않는 글입니다."));
+		return BoardDto.builder()
+			.Id(findBoard.getId())
+			.author(findBoard.getAuthor())
+			.title(findBoard.getTitle())
+			.content(findBoard.getContent())
+			.createAt(findBoard.getCreatedAt().format(DateTimeFormatter.ofPattern("yyyy-MM-dd hh:mm:ss")))
+			.build();
 	}
 }

@@ -15,14 +15,14 @@ public class BoardDto implements Serializable {
 	private String title;
 	private String content;
 	private String author;
-	private LocalDateTime createAt;
+	private String createAt;
 
 	@Builder
-	public BoardDto(Long Id, String title, String content, String author) {
+	public BoardDto(Long Id, String title, String content, String author, String createAt) {
 		this.Id = Id;
 		this.title = title;
 		this.content = content;
 		this.author = author;
-		this.createAt = LocalDateTime.now();
+		this.createAt = createAt;
 	}
 }

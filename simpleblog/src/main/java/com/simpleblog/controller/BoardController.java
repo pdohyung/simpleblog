@@ -4,6 +4,7 @@ import java.util.List;
 
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.simpleblog.entity.Board;
@@ -26,8 +27,8 @@ public class BoardController {
 		return boardService.getBoardList();
 	}
 
-	@GetMapping("/board")
-	public Board hello(){
-		return boardRepository.findById(1L).orElseThrow(() -> new IllegalArgumentException("dsds"));
+	@GetMapping("/boards/{boardId}")
+	public BoardDto getBoard(@PathVariable Long boardId){
+		return boardService.getBoard(boardId);
 	}
 }
