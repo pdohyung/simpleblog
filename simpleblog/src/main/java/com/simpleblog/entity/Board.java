@@ -1,4 +1,4 @@
-package com.simpleblog.domain;
+package com.simpleblog.entity;
 
 import java.time.LocalDateTime;
 
@@ -7,7 +7,6 @@ import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import lombok.AccessLevel;
-import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 
@@ -21,13 +20,5 @@ public class Board {
 	private String title;
 	private String content;
 	private String author;
-	private LocalDateTime createAt;
-
-	@Builder
-	public Board(String title, String content, String author) {
-		this.title = title;
-		this.content = content;
-		this.author = author;
-		this.createAt = LocalDateTime.now();
-	}
+	private LocalDateTime createdAt;
 }
