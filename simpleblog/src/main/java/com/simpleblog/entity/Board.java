@@ -30,4 +30,9 @@ public class Board {
 		this.author = author;
 		this.createdAt = createdAt;
 	}
+
+	public void edit(String title, String content){
+		this.title = title;
+		this.content = content;
+	}
 }

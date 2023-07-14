@@ -7,15 +7,15 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.Getter;
 
-@Data
+
 @Getter
 public class BoardDto implements Serializable {
 
-	private Long Id;
-	private String title;
-	private String content;
-	private String author;
-	private String createAt;
+	private final Long Id;
+	private final String title;
+	private final String content;
+	private final String author;
+	private final String createAt;
 
 	@Builder
 	public BoardDto(Long Id, String title, String content, String author, String createAt) {
